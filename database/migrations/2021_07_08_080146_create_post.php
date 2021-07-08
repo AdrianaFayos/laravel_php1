@@ -16,6 +16,8 @@ class CreatePost extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 
