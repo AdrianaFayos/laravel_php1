@@ -111,7 +111,11 @@ class PostController extends Controller
 
         }
 
-        $updated = $post->fill($request->all())->save();
+        // $updated = $post->fill($request->all())->save();
+
+        $updated = $post->update([
+            'title' => $request->input('title'),
+        ]);
 
         if($updated){
             return response() ->json([
